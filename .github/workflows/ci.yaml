@@ -30,7 +30,7 @@ jobs:
             echo PATH=$PATH >> $GITHUB_ENV
 
       - name: Install dependencies
-        run: fixuv pip install -r requirements.txt
+        run: uv pip install -r requirements.txt
 
       - name: Check Lint
         run: ruff check 
