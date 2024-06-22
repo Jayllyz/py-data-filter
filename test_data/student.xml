@@ -1,0 +1,36 @@
+<students>
+    <student>
+        <first_name>John</first_name>
+        <last_name>Doe</last_name>
+        <age>25</age>
+        <apprentice>true</apprentice>
+        <grades>
+            <grade>20</grade>
+            <grade>10</grade>
+            <grade>70</grade>
+            <grade>10</grade>
+        </grades>
+    </student>
+    <student>
+        <first_name>Jane</first_name>
+        <last_name>Doe</last_name>
+        <age>24</age>
+        <apprentice>false</apprentice>
+        <grades>
+            <grade>85</grade>
+            <grade>75</grade>
+            <grade>65</grade>
+        </grades>
+    </student>
+    <student>
+        <first_name>Jim</first_name>
+        <last_name>Doe</last_name>
+        <age>23</age>
+        <apprentice>true</apprentice>
+        <grades>
+            <grade>80</grade>
+            <grade>70</grade>
+            <grade>60</grade>
+        </grades>
+    </student>
+</students>

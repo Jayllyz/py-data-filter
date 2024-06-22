@@ -39,7 +39,7 @@ class Setup(Ui_MainWindow):
             self.MainWindow,
             "Sélectionner un fichier",
             "",
-            "Fichiers json (*.json);;Fichiers csv (*.csv)",
+            "Fichiers json (*.json);;Fichiers csv (*.csv);;Fichiers xml (*.xml);;Fichiers yaml (*.yml *.yaml)",
         )
         if file:
             self.ui.inputFolder.setText(file)
