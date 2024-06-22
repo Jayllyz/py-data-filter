@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>400</width>
-    <height>300</height>
+    <height>369</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -22,6 +22,18 @@
        <verstretch>0</verstretch>
       </sizepolicy>
      </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QWidget" name="widget" native="true">
+     <layout class="QHBoxLayout" name="horizontalLayout_2">
+      <item>
+       <widget class="QComboBox" name="comboBoxKey"/>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="inputKey"/>
+      </item>
+     </layout>
     </widget>
    </item>
    <item>

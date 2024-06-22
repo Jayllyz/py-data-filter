@@ -5,7 +5,7 @@
             "last_name": "Doe",
             "age": 25,
             "apprentice": true,
-            "grades": [20, 10, 70]
+            "grades": [20, 10, 70, 10]
         },
         {
             "first_name": "Jane",
