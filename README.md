@@ -11,7 +11,7 @@ Requirements:
 - [uv](https://github.com/astral-sh/uv)
 
 ```bash
-uv pip install -r requirements.txt
+uv pip freeze | uv pip compile - -o requirements.txt
 ```
 
 ## Ruff commands
