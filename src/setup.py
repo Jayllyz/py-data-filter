@@ -7,6 +7,7 @@ from src.ui.dialog import Ui_MainWindow
 from src.data import Data
 from src.stats import Stats
 from src.filter import Filter
+from src.order import Order
 import json
 import copy
 
@@ -18,12 +19,11 @@ class Setup(Ui_MainWindow):
         self.MainWindow = MainWindow
         self.data_original = {}
         self.data_current = {}
+
         self.filter = None
+        self.order = None
 
     def setup(self):
-        self.ui.inputFolder.setText(
-            "D:/Dev Projects/py-data-filter/test_data/student.json"
-        )
         self.ui.buttonFolder.clicked.connect(lambda: self.select_file())
         self.ui.buttonData.clicked.connect(lambda: self.process_data())
         self.ui.buttonShowData.clicked.connect(
@@ -31,6 +31,8 @@ class Setup(Ui_MainWindow):
         )
         self.ui.buttonShowStat.clicked.connect(lambda: self.show_stats())
         self.ui.buttonFilter.clicked.connect(lambda: self.show_filter_dialog())
+        self.ui.buttonOrder.clicked.connect(lambda: self.show_order_dialog())
+        self.ui.buttonClear.clicked.connect(lambda: self.clear_filter())
 
     def select_file(self):
         file, _ = QFileDialog.getOpenFileName(
@@ -52,6 +54,7 @@ class Setup(Ui_MainWindow):
         self.data_original = Data().process(self.ui.inputFolder.text())
         self.data_current = copy.deepcopy(self.data_original)
         self.filter = Filter(self, self.data_original)
+        self.order = Order(self)
         self.show_data(self.data_current)
 
     def show_data(self, data: dict):
@@ -73,3 +76,15 @@ class Setup(Ui_MainWindow):
             )
             return
         self.filter.show()
+
+    def show_order_dialog(self):
+        if not self.data_original:
+            QMessageBox.warning(
+                self.MainWindow, "Erreur", "Veuillez récupérer les données"
+            )
+            return
+        self.order.show(self.data_current)
+
+    def clear_filter(self):
+        self.data_current = copy.deepcopy(self.data_original)
+        self.show_data(self.data_current)

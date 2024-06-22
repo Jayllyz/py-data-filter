@@ -1,8 +1,4 @@
-from PyQt5.QtWidgets import (
-    QDialog,
-    QCheckBox,
-    QVBoxLayout,
-)
+from PyQt5.QtWidgets import QDialog, QCheckBox, QVBoxLayout
 from src.ui.filter import Ui_Dialog
 import copy
 
@@ -13,9 +9,9 @@ class Filter:
         self.filter_dialog = QDialog()
         self.filter_ui = Ui_Dialog()
         self.parent = parent
-        self.filtered_data = []
         self.filter_ui.setupUi(self.filter_dialog)
         self.filter_ui.buttonApply.clicked.connect(lambda: self.apply())
+        self.filter_ui.buttonCancel.clicked.connect(lambda: self.filter_dialog.close())
 
     def show(self):
         array_key = ""
