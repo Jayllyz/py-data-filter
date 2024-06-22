@@ -32,6 +32,7 @@ class Setup(Ui_MainWindow):
         self.ui.buttonShowStat.clicked.connect(lambda: self.show_stats())
         self.ui.buttonFilter.clicked.connect(lambda: self.show_filter_dialog())
         self.ui.buttonOrder.clicked.connect(lambda: self.show_order_dialog())
+        self.ui.buttonClear.clicked.connect(lambda: self.clear_filter())
 
     def select_file(self):
         file, _ = QFileDialog.getOpenFileName(
@@ -83,3 +84,7 @@ class Setup(Ui_MainWindow):
             )
             return
         self.order.show(self.data_current)
+
+    def clear_filter(self):
+        self.data_current = copy.deepcopy(self.data_original)
+        self.show_data(self.data_current)
