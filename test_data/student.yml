@@ -1,0 +1,26 @@
+student:
+  - first_name: John
+    last_name: Doe
+    age: 25
+    apprentice: true
+    grades:
+      - 20
+      - 10
+      - 70
+      - 10
+  - first_name: Jane
+    last_name: Doe
+    age: 24
+    apprentice: false
+    grades:
+      - 85
+      - 75
+      - 65
+  - first_name: Jim
+    last_name: Doe
+    age: 23
+    apprentice: true
+    grades:
+      - 80
+      - 70
+      - 60
