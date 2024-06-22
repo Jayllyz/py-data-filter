@@ -33,5 +33,4 @@ class Setup(Ui_MainWindow):
             return
         self.ui.dataOutput.clear()
         self.data = Data().process(self.ui.inputFolder.text())
-        print(self.data)
         self.ui.dataOutput.setPlainText(json.dumps(self.data, indent=4))
