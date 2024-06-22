@@ -25,7 +25,7 @@ class Stats:
                 stats[key]["min"] = min([data[key] for data in data_list])
                 stats[key]["max"] = max([data[key] for data in data_list])
                 stats[key]["avg"] = round(
-                    sum([d[key] for d in data_list]) / len(data_list), 2
+                    sum([data[key] for data in data_list]) / len(data_list), 2
                 )
 
             elif isinstance(data_list[0][key], list):
