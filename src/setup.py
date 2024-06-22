@@ -1,6 +1,7 @@
 from PyQt5.QtWidgets import QMainWindow, QFileDialog, QMessageBox
 from src.ui.dialog import Ui_MainWindow
 from src.data import Data
+from src.stats import Stats
 import json
 
 
@@ -9,11 +10,16 @@ class Setup(Ui_MainWindow):
         super().__init__()
         self.ui = ui
         self.MainWindow = MainWindow
-        self.data = {}
+        self.data_original = {}
+        self.data_current = {}
 
     def setup(self):
         self.ui.buttonFolder.clicked.connect(lambda: self.select_file())
         self.ui.buttonData.clicked.connect(lambda: self.process_data())
+        self.ui.buttonShowData.clicked.connect(
+            lambda: self.show_data(self.data_current)
+        )
+        self.ui.buttonShowStat.clicked.connect(lambda: self.show_stats())
 
     def select_file(self):
         file, _ = QFileDialog.getOpenFileName(
@@ -32,5 +38,13 @@ class Setup(Ui_MainWindow):
             )
             return
         self.ui.dataOutput.clear()
-        self.data = Data().process(self.ui.inputFolder.text())
-        self.ui.dataOutput.setPlainText(json.dumps(self.data, indent=4))
+        self.data_original = Data().process(self.ui.inputFolder.text())
+        self.data_current = self.data_original
+        self.show_data(self.data_current)
+
+    def show_data(self, data: dict):
+        self.ui.dataOutput.setPlainText(json.dumps(data, indent=4))
+
+    def show_stats(self):
+        data = Stats(self.ui).get_stats(self.data_current)
+        self.show_data(data)
