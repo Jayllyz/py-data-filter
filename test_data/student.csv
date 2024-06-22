@@ -1,0 +1,4 @@
+first_name;last_name;age;apprentice;grades
+John;Doe;25;True;90,80,70
+Jane;Doe;24;False;85,75,65
+Jim;Doe;23;True;80,70,60
