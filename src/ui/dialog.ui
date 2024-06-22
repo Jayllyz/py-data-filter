@@ -71,16 +71,16 @@
         <widget class="QWidget" name="widget_4" native="true">
          <layout class="QHBoxLayout" name="horizontalLayout_2">
           <item>
-           <widget class="QPushButton" name="pushButton">
+           <widget class="QPushButton" name="buttonShowData">
             <property name="text">
-             <string>option 1</string>
+             <string>Voir les données</string>
             </property>
            </widget>
           </item>
           <item>
-           <widget class="QPushButton" name="pushButton_2">
+           <widget class="QPushButton" name="buttonShowStat">
             <property name="text">
-             <string>option 2</string>
+             <string>Voir les stats</string>
             </property>
            </widget>
           </item>

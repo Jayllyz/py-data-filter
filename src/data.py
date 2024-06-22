@@ -28,15 +28,15 @@ class Data:
             header = next(reader)
             data[file_name] = []
             for row in reader:
-                student = {}
+                array = {}
                 for i, value in enumerate(row):
                     if value.find(",") == -1:
-                        student[header[i]] = self.correct_type(value)
+                        array[header[i]] = self.correct_type(value)
                     else:
-                        student[header[i]] = [
+                        array[header[i]] = [
                             self.correct_type(v) for v in value.split(",")
                         ]
-                data[file_name].append(student)
+                data[file_name].append(array)
         return data
 
     def correct_type(self, value: str):
