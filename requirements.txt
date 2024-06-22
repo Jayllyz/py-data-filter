@@ -2,5 +2,3 @@
 #    uv pip compile - -o requirements.txt
 ruff==0.4.9
 pyqt5==5.15.9
-pyqt5-tools==5.15.9.3.3
-pyqt5-plugins==5.15.9.2.3
