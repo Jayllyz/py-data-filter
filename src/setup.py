@@ -1,8 +1,14 @@
-from PyQt5.QtWidgets import QMainWindow, QFileDialog, QMessageBox
+from PyQt5.QtWidgets import (
+    QMainWindow,
+    QFileDialog,
+    QMessageBox,
+)
 from src.ui.dialog import Ui_MainWindow
 from src.data import Data
 from src.stats import Stats
+from src.filter import Filter
 import json
+import copy
 
 
 class Setup(Ui_MainWindow):
@@ -12,14 +18,19 @@ class Setup(Ui_MainWindow):
         self.MainWindow = MainWindow
         self.data_original = {}
         self.data_current = {}
+        self.filter = None
 
     def setup(self):
+        self.ui.inputFolder.setText(
+            "D:/Dev Projects/py-data-filter/test_data/student.json"
+        )
         self.ui.buttonFolder.clicked.connect(lambda: self.select_file())
         self.ui.buttonData.clicked.connect(lambda: self.process_data())
         self.ui.buttonShowData.clicked.connect(
             lambda: self.show_data(self.data_current)
         )
         self.ui.buttonShowStat.clicked.connect(lambda: self.show_stats())
+        self.ui.buttonFilter.clicked.connect(lambda: self.show_filter_dialog())
 
     def select_file(self):
         file, _ = QFileDialog.getOpenFileName(
@@ -39,7 +50,8 @@ class Setup(Ui_MainWindow):
             return
         self.ui.dataOutput.clear()
         self.data_original = Data().process(self.ui.inputFolder.text())
-        self.data_current = self.data_original
+        self.data_current = copy.deepcopy(self.data_original)
+        self.filter = Filter(self, self.data_original)
         self.show_data(self.data_current)
 
     def show_data(self, data: dict):
@@ -53,3 +65,11 @@ class Setup(Ui_MainWindow):
             return
         data = Stats(self.ui).get_stats(self.data_current)
         self.show_data(data)
+
+    def show_filter_dialog(self):
+        if not self.data_original:
+            QMessageBox.warning(
+                self.MainWindow, "Erreur", "Veuillez récupérer les données"
+            )
+            return
+        self.filter.show()

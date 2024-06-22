@@ -67,6 +67,15 @@ class Ui_MainWindow(object):
         self.buttonShowStat = QtWidgets.QPushButton(self.widget_4)
         self.buttonShowStat.setObjectName("buttonShowStat")
         self.horizontalLayout_2.addWidget(self.buttonShowStat)
+        self.buttonFilter = QtWidgets.QPushButton(self.widget_4)
+        self.buttonFilter.setObjectName("buttonFilter")
+        self.horizontalLayout_2.addWidget(self.buttonFilter)
+        self.buttonOrder = QtWidgets.QPushButton(self.widget_4)
+        self.buttonOrder.setObjectName("buttonOrder")
+        self.horizontalLayout_2.addWidget(self.buttonOrder)
+        self.buttonClear = QtWidgets.QPushButton(self.widget_4)
+        self.buttonClear.setObjectName("buttonClear")
+        self.horizontalLayout_2.addWidget(self.buttonClear)
         self.verticalLayout_3.addWidget(self.widget_4)
         self.dataOutput = QtWidgets.QTextEdit(self.widget_3)
         self.dataOutput.setStyleSheet("border: 1px solid;")
@@ -87,6 +96,9 @@ class Ui_MainWindow(object):
         self.buttonData.setText(_translate("MainWindow", "Récupérer les données"))
         self.buttonShowData.setText(_translate("MainWindow", "Voir les données"))
         self.buttonShowStat.setText(_translate("MainWindow", "Voir les stats"))
+        self.buttonFilter.setText(_translate("MainWindow", "Filtrer"))
+        self.buttonOrder.setText(_translate("MainWindow", "Trier"))
+        self.buttonClear.setText(_translate("MainWindow", "Retirer les filtres"))
 
 
 if __name__ == "__main__":

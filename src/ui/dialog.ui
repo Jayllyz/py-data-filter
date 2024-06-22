@@ -84,6 +84,27 @@
             </property>
            </widget>
           </item>
+          <item>
+           <widget class="QPushButton" name="buttonFilter">
+            <property name="text">
+             <string>Filtrer</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="buttonOrder">
+            <property name="text">
+             <string>Trier</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="buttonClear">
+            <property name="text">
+             <string>Retirer les filtres</string>
+            </property>
+           </widget>
+          </item>
          </layout>
         </widget>
        </item>
