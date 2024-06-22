@@ -30,17 +30,23 @@ class Data:
             for row in reader:
                 student = {}
                 for i, value in enumerate(row):
-                    if i < len(header) - 1:
-                        if header[i] == "age":
-                            student[header[i]] = int(value)
-                        elif header[i] in {"apprentice"}:
-                            student[header[i]] = value.lower() == "true"
-                        else:
-                            student[header[i]] = value
+                    if value.find(",") == -1:
+                        student[header[i]] = self.correct_type(value)
                     else:
                         student[header[i]] = [
-                            int(grade) if grade.isdigit() else float(grade)
-                            for grade in value.split(",")
+                            self.correct_type(v) for v in value.split(",")
                         ]
                 data[file_name].append(student)
         return data
+
+    def correct_type(self, value: str):
+        value = value.strip('"')
+        if value.lower() in ["true", "false"]:
+            return bool(value.lower() == "true")
+        try:
+            return int(value)
+        except ValueError:
+            try:
+                return float(value)
+            except ValueError:
+                return value
