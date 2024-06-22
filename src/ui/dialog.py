@@ -42,7 +42,9 @@ class Ui_MainWindow(object):
         self.verticalLayout_2.addWidget(self.buttonData)
         self.verticalLayout.addWidget(self.widget, 0, QtCore.Qt.AlignTop)
         self.widget_3 = QtWidgets.QWidget(self.centralwidget)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Expanding
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.widget_3.sizePolicy().hasHeightForWidth())
@@ -80,7 +82,7 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
-        self.label.setText(_translate("MainWindow", "Chemin du fichier d\'entrée"))
+        self.label.setText(_translate("MainWindow", "Chemin du fichier d'entrée"))
         self.buttonFolder.setText(_translate("MainWindow", "..."))
         self.buttonData.setText(_translate("MainWindow", "Récupérer les données"))
         self.pushButton.setText(_translate("MainWindow", "option 1"))
@@ -89,6 +91,7 @@ class Ui_MainWindow(object):
 
 if __name__ == "__main__":
     import sys
+
     app = QtWidgets.QApplication(sys.argv)
     MainWindow = QtWidgets.QMainWindow()
     ui = Ui_MainWindow()

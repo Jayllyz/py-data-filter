@@ -3,6 +3,7 @@ from src.ui.dialog import Ui_MainWindow
 from src.data import Data
 import json
 
+
 class Setup(Ui_MainWindow):
     def __init__(self, MainWindow: QMainWindow, ui: Ui_MainWindow):
         super().__init__()
@@ -15,13 +16,20 @@ class Setup(Ui_MainWindow):
         self.ui.buttonData.clicked.connect(lambda: self.process_data())
 
     def select_file(self):
-        file, _ = QFileDialog.getOpenFileName(self.MainWindow, "Sélectionner un fichier", "", "Fichiers json (*.json);;Fichiers csv (*.csv)")
+        file, _ = QFileDialog.getOpenFileName(
+            self.MainWindow,
+            "Sélectionner un fichier",
+            "",
+            "Fichiers json (*.json);;Fichiers csv (*.csv)",
+        )
         if file:
             self.ui.inputFolder.setText(file)
 
     def process_data(self):
         if not self.ui.inputFolder.text():
-            QMessageBox.warning(self.MainWindow, "Erreur", "Veuillez sélectionner un fichier")
+            QMessageBox.warning(
+                self.MainWindow, "Erreur", "Veuillez sélectionner un fichier"
+            )
             return
         self.ui.dataOutput.clear()
         self.data = Data().process(self.ui.inputFolder.text())
