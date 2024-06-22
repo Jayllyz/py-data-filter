@@ -46,5 +46,10 @@ class Setup(Ui_MainWindow):
         self.ui.dataOutput.setPlainText(json.dumps(data, indent=4))
 
     def show_stats(self):
+        if not self.data_current:
+            QMessageBox.warning(
+                self.MainWindow, "Erreur", "Auncun fichier n'a été importé"
+            )
+            return
         data = Stats(self.ui).get_stats(self.data_current)
         self.show_data(data)
