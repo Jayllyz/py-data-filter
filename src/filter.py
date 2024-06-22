@@ -23,11 +23,14 @@ class Filter:
             array_key = key
 
         if not self.filter_ui.widgetCheck.layout():
+            self.filter_ui.comboBoxKey.addItem("")
             layout = QVBoxLayout()
-            for key in self.data_original[array_key][0].keys():
+            for key, value in self.data_original[array_key][0].items():
                 checkbox = QCheckBox(key)
                 checkbox.setChecked(True)
                 layout.addWidget(checkbox)
+                if isinstance(value, str) or isinstance(value, list):
+                    self.filter_ui.comboBoxKey.addItem(key)
 
             self.filter_ui.widgetCheck.setLayout(layout)
         self.filter_dialog.show()
@@ -38,6 +41,25 @@ class Filter:
             array_key = key
 
         self.parent.data_current = copy.deepcopy(self.data_original)
+
+        if self.filter_ui.comboBoxKey.currentText() != "":
+            filtered_key = self.filter_ui.comboBoxKey.currentText()
+            filtered_value = self.filter_ui.inputKey.text()
+
+            if isinstance(self.data_original[array_key][0][filtered_key], str):
+                filtered_data = [
+                    data
+                    for data in self.parent.data_current[array_key]
+                    if data[filtered_key] >= filtered_value
+                ]
+            if isinstance(self.data_original[array_key][0][filtered_key], list):
+                filtered_data = [
+                    data
+                    for data in self.parent.data_current[array_key]
+                    if len(data[filtered_key]) >= int(filtered_value)
+                ]
+
+            self.parent.data_current[array_key] = filtered_data
 
         for checkbox in self.filter_ui.widgetCheck.findChildren(QCheckBox):
             if not checkbox.isChecked():
