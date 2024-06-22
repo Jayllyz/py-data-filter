@@ -1,4 +1,5 @@
-import json, csv
+import json
+import csv
 
 class Data:
     def __init__(self):

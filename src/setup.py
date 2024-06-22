@@ -2,7 +2,6 @@ from PyQt5.QtWidgets import QMainWindow, QFileDialog, QMessageBox
 from src.ui.dialog import Ui_MainWindow
 from src.data import Data
 import json
-import sys
 
 class Setup(Ui_MainWindow):
     def __init__(self, MainWindow: QMainWindow, ui: Ui_MainWindow):
