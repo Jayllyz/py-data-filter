@@ -15,7 +15,7 @@ Requirements:
 uv pip install -r requirements.txt
 
 # Generate requirements.txt
-uv pip freeze | uv pip compile - -o requirements.txt
+uv pip freeze | uv pip compile - -o requirements.txt --python-platform=linux
 ```
 
 ## Ruff commands

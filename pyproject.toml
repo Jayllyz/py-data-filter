@@ -79,3 +79,6 @@ docstring-code-line-length = "dynamic"
 
 [project]
 requires-python = ">=3.8"
+
+[tool.pytest.ini_options]
+pythonpath = "src/"
