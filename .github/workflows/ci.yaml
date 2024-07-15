@@ -7,9 +7,10 @@ on:
 
 env:
     FORCE_COLOR: 1
+    CI: true
 
 jobs:
-  ruff:
+  ci:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4

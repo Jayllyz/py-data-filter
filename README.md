@@ -1,7 +1,7 @@
 # Python Data Filter
 
 [![Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff)
-[![Ruff](https://github.com/Jayllyz/py-data-filter/actions/workflows/ci.yaml/badge.svg?branch=main)](https://github.com/Jayllyz/py-data-filter/actions/workflows/ci.yaml)
+[![ci](https://github.com/Jayllyz/py-data-filter/actions/workflows/ci.yaml/badge.svg?branch=main)](https://github.com/Jayllyz/py-data-filter/actions/workflows/ci.yaml)
 
 ## Setup development environment
 
