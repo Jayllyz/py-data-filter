@@ -8,12 +8,16 @@ def data_processor():
 
 
 def test_json_file(data_processor, tmp_path):
-    json_content = '{"student": [{"name": "John", "age": 25}]}'
+    json_content = (
+        '{"student": [{"name": "John", "age": 25}, {"name": "Jane", "age": 24}]}'
+    )
     json_file = tmp_path / "test.json"
     json_file.write_text(json_content)
 
     result = data_processor.process(str(json_file))
-    assert result == {"student": [{"name": "John", "age": 25}]}
+    assert result == {
+        "student": [{"name": "John", "age": 25}, {"name": "Jane", "age": 24}]
+    }
 
 
 def test_csv_file(data_processor, tmp_path):
