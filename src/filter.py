@@ -41,9 +41,9 @@ class Filter:
         if self.filter_ui.comboBoxKey.currentText() != "":
             filtered_key = self.filter_ui.comboBoxKey.currentText()
             filtered_value = self.filter_ui.inputKey.text()
-            
-            if ',' in filtered_value:
-                filtered_value = filtered_value.split(',')
+
+            if "," in filtered_value:
+                filtered_value = filtered_value.split(",")
                 filtered_value = [value.strip() for value in filtered_value]
 
             if isinstance(self.data_original[array_key][0][filtered_key], str):
@@ -57,8 +57,20 @@ class Filter:
                     data
                     for data in self.parent.data_current[array_key]
                     if any(
-                        str(fv).lower() in [str(v).lower() for v in (data[filtered_key] if isinstance(data[filtered_key], list) else [data[filtered_key]])]
-                        for fv in (filtered_value if isinstance(filtered_value, list) else [filtered_value])
+                        str(fv).lower()
+                        in [
+                            str(v).lower()
+                            for v in (
+                                data[filtered_key]
+                                if isinstance(data[filtered_key], list)
+                                else [data[filtered_key]]
+                            )
+                        ]
+                        for fv in (
+                            filtered_value
+                            if isinstance(filtered_value, list)
+                            else [filtered_value]
+                        )
                     )
                 ]
 
